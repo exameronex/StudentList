@@ -1,7 +1,6 @@
 <?php
 	$formReg = true;
-	
-	//echo 
+
 	if (isset($_COOKIE['form'])) {
 		$formReg = false;	
 

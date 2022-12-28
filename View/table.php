@@ -39,15 +39,17 @@
                 <?php endwhile; ?>
             </tbody>
         </table>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+        <?php if ($studentsCount > 50): ?>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">                    
+                    <li class="page-item <?php if ($page == 1): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTable.php?page=<?php echo $page-1; ?>">Previous</a></li>
+                    <?php for ($i = 1; $i <= $strPage; $i++): ?>
+                        <li class="page-item <?php if ($page == $i): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTable.php?page=<?php echo $i; ?>"><?php echo $i ?></a></li>
+                    <?php endfor; ?>
+                    <li class="page-item <?php if ($page == $strPage): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTable.php?page=<?php echo $page+1; ?>">Next</a></li>
+                </ul>
+            </nav>
+        <? endif; ?>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

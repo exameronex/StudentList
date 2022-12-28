@@ -19,10 +19,16 @@
             }
         }
 
-        public function getAllStudent() {
-            $sql = "SELECT * FROM Students";
+        public function getStudentForOnePage($art) {
+            $sql = "SELECT * FROM Students LIMIT $art, 50";
             $arrStud = $this->conn->query($sql);
      
             return $arrStud;
+        } 
+
+        public function getCountPage() {
+            $sql = "SELECT COUNT(*) FROM Students";
+                 
+            return $this->conn->query($sql);
         } 
     }
