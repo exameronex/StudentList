@@ -9,6 +9,7 @@
 </head>
 <body class="container">
     <header class="col-3 mt-3 mb-2 d-flex justify-content-end w-100">
+        <div class="row">
         <form action="/controller/controllerTableSearch.php" method="post">
             <div class="input-group rounded">
                 <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search"/>
@@ -17,6 +18,7 @@
                 </button>
             </div>
         </form>
+        </div>
     </header>
     <main>
         <table class="table">
@@ -64,14 +66,17 @@
         <?php if ($studentsCount > 50): ?>
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">                    
-                    <li class="page-item <?php if ($page == 1): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTable.php?page=<?php echo $page-1; ?>">Previous</a></li>
+                    <li class="page-item <?php if ($page == 1): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTableSearch.php?page=<?php echo $page-1; ?>">Previous</a></li>
                     <?php for ($i = 1; $i <= $strPage; $i++): ?>
-                        <li class="page-item <?php if ($page == $i): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTable.php?page=<?php echo $i; ?>"><?php echo $i ?></a></li>
+                        <li class="page-item <?php if ($page == $i): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTableSearch.php?page=<?php echo $i; ?>"><?php echo $i ?></a></li>
                     <?php endfor; ?>
-                    <li class="page-item <?php if ($page == $strPage): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTable.php?page=<?php echo $page+1; ?>">Next</a></li>
+                    <li class="page-item <?php if ($page == $strPage): ?>disabled<? endif; ?>"><a class="page-link" href="controllerTableSearch.php?page=<?php echo $page+1; ?>">Next</a></li>
                 </ul>
             </nav>
         <? endif; ?>
+        <div>
+            <a class="btn btn-danger d-block text-center mb-2 pt-2 pb-2" href="/controller/controllerTable.php">Вернуться на главную таблицу</a>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

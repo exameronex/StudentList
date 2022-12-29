@@ -49,4 +49,16 @@
                 echo "Ошибка: " . $this->conn->error;
             }
         }
+
+        public function getStudentBySearchForOnePage($searchText, $art) {
+            $sql = "SELECT * FROM Students WHERE first_name LIKE '%$searchText%' OR last_name LIKE '%$searchText%' LIMIT $art, 50";
+
+            return $this->conn->query($sql);     
+        }
+
+        public function getCountPageBySearch($searchText) {
+            $sql = "SELECT COUNT(*) FROM Students WHERE first_name LIKE '%$searchText%' OR last_name LIKE '%$searchText%'";
+                 
+            return $this->conn->query($sql);
+        }        
     }
