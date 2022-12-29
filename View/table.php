@@ -29,12 +29,24 @@
                         <th scope="row"><?=$row["id_student"];?></th>
                         <td><?=$row["first_name"];?></td>
                         <td><?=$row["last_name"];?></td>
-                        <td><?=$row["gender"];?></td>
+                        <td><?php
+                            if ($row["gender"] == 0) {
+                                echo "Мужской";
+                            } else {
+                                echo "Женский";
+                            }
+                        ?></td>
                         <td><?=$row["group_number"];?></td>
                         <td><?=$row["email"];?></td>
                         <td><?=$row["ege_points"];?></td>
                         <td><?=$row["year_birth"];?></td>
-                        <td><?=$row["is_local"];?></td>                    
+                        <td><?php
+                            if ($row["is_local"] == 0) {
+                                echo "Местный";
+                            } else {
+                                echo "Иногородний";
+                            }
+                        ?></td>                    
                     </tr>
                 <?php endwhile; ?>
             </tbody>

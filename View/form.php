@@ -17,30 +17,30 @@
         <? endif; ?>
             <form action="/controller/controllerTable.php" method="post">
                 <div class="mb-3">
-                    <input class="form-control" name="name" placeholder="Имя">						
+                    <input class="form-control" name="name" placeholder="Имя" <?php if (!$formReg): ?>value=<?php echo $studById["first_name"] ?><? endif; ?>>						
                 </div>
                 <div class="mb-2">
-                    <input class="form-control" name="lastName" placeholder="Фамилия">						
+                    <input class="form-control" name="lastName" placeholder="Фамилия" <?php if (!$formReg): ?>value=<?php echo $studById["last_name"] ?><? endif; ?>>						
                 </div>
                 <div class="mb-3">
-                    <label><input type="radio" name="gender" checked value="0">Мужской</label>
-                    <label><input type="radio" name="gender" value="1">Женский</label>							
+                    <label><input type="radio" name="gender" <?php if (!$formReg && $studById["gender"] == 0): ?>checked<? endif; ?> value="0">Мужской</label>
+                    <label><input type="radio" name="gender" <?php if (!$formReg && $studById["gender"] == 1): ?>checked<? endif; ?> value="1">Женский</label>							
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" name="numberGroup" placeholder="Номер группы">			
+                    <input class="form-control" name="numberGroup" placeholder="Номер группы" <?php if (!$formReg): ?>value=<?php echo $studById["group_number"] ?><? endif; ?>>			
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="email" name="email" placeholder="e-mail">		
+                    <input class="form-control" type="email" name="email" placeholder="e-mail" <?php if (!$formReg): ?>value=<?php echo $studById["email"] ?><? endif; ?>>		
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="number" name="ege" min="0" max="500" placeholder="Суммарное число баллов на ЕГЭ">	
+                    <input class="form-control" type="number" name="ege" min="0" max="500" placeholder="Суммарное число баллов на ЕГЭ" <?php if (!$formReg): ?>value=<?php echo $studById["ege_points"] ?><? endif; ?>>	
                 </div>
                 <div class="mb-2">
-                    <input class="form-control" type="number" name="yearBirthday" min="1900" placeholder="Год рождения">
+                    <input class="form-control" type="number" name="yearBirthday" min="1900" placeholder="Год рождения" <?php if (!$formReg): ?>value=<?php echo $studById["year_birth"] ?><? endif; ?>>
                 </div>
                 <div class="mb-3">
-                    <label><input type="radio" name="isLocal" checked value="0">Местный</label>
-                    <label><input type="radio" name="isLocal" value="1">Иногородний</label>							
+                    <label><input type="radio" name="isLocal" <?php if (!$formReg && $studById["is_local"] == 0): ?>checked<? endif; ?> value="0">Местный</label>
+                    <label><input type="radio" name="isLocal" <?php if (!$formReg && $studById["is_local"] == 1): ?>checked<? endif; ?> value="1">Иногородний</label>							
                 </div>		
                 <?php if ($formReg): ?>
                     <button class="btn btn-primary">Отправить</button>
